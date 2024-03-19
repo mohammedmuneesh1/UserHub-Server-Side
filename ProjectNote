@@ -1,0 +1,79 @@
+
+EXPRESS.JSON()
+
+The express.json() middleware is used in an Express.js application to parse incoming request bodies with JSON payloads.
+
+When a client sends a POST request with a JSON payload (such as when submitting a form or making an API request), the data sent by the client is included in the body of the request. This data needs to be extracted and parsed by the server in order to be used within the application.
+
+The express.json() middleware intercepts incoming requests, reads the request body, and parses it as JSON. It then makes the parsed JSON data available in the req.body object of the subsequent middleware and route handlers, so that you can access and use the data in your application logic.
+
+
+
+app.use()
+
+The app.use() function in Express.js is used to mount middleware functions or middleware series at a specified route or path in your application's middleware stack. Middleware functions in Express.js are functions that have access to the request object (req), the response object (res), and the next middleware function in the application's request-response cycle.
+
+Here are some common use cases for app.use():
+
+Mounting Middleware: You can use app.use() to mount middleware functions or middleware series that perform tasks such as logging, authentication, error handling, parsing request bodies, etc. Middleware mounted using app.use() will be executed for every incoming request that matches the specified route or path.
+
+javascript
+Copy code
+app.use(express.json()); // Mounting body parser middleware
+app.use(express.urlencoded({ extended: true })); // Mounting URL-encoded body parser middleware
+app.use(loggerMiddleware); // Mounting custom logging middleware
+Mounting Routers: You can also use app.use() to mount routers at specific routes in your application. Routers allow you to modularize your routes and handlers, making your code more organized and maintainable.
+
+javascript
+Copy code
+const userRouter = require('./routes/userRouter');
+app.use('/users', userRouter); // Mounting userRouter at /users route
+Serving Static Files: You can use app.use() to serve static files from a directory on your server. This is commonly used to serve HTML, CSS, JavaScript, images, and other static assets.
+
+javascript
+Copy code
+app.use(express.static('public')); // Serving static files from the 'public' directory
+Handling Errors: You can mount error-handling middleware using app.use() to catch and handle errors that occur during the request-response cycle.
+
+javascript
+Copy code
+app.use(errorHandlerMiddleware); // Mounting custom error handling middleware
+Executing Middleware for All Routes: If you want certain middleware functions to be executed for all routes in your application, you can use app.use() without specifying a route. This mounts the middleware at the application level.
+
+javascript
+Copy code
+app.use(cors()); // Mounting CORS middleware for all routes
+In summary, app.use() is a versatile function in Express.js that allows you to add middleware functions or routers to your application's middleware stack, making it a fundamental building block for building robust and flexible web applications.
+
+
+
+
+import { Request, Response, NextFunction } from "express"; 
+
+In an Express.js application, Request and Response are types/interfaces provided by the Express framework to represent the HTTP request and response objects, respectively. These types/interfaces offer various properties and methods to access and manipulate the incoming request and outgoing response during the lifecycle of an HTTP request.
+
+Here's a brief explanation of each:
+
+Request: The Request object represents the HTTP request sent by the client to the server. 
+
+
+JWT. VERIFY 
+
+
+
+In the jwt.verify() function, the parameters err and decoded are callback parameters that are used to handle the result of the JWT verification process:
+
+err: This parameter represents any error that occurred during the verification process. If verification is successful, err will be null. However, if an error occurs (e.g., token has expired, token signature is invalid, etc.), err will contain information about the error.
+
+decoded: This parameter represents the decoded payload of the JWT token if verification is successful. It contains the information stored within the JWT payload, such as user data or any other claims included when the token was signed.
+
+
+
+
+
+hello324324
+mishal
+
+
+
+

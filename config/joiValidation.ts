@@ -8,8 +8,3 @@ export const userRegistrationValdation = Joi.object({
     email:Joi.string().email().required(),
     location:Joi.string(),
 })
-// {
-//     "userName": "mishal",
-//     "age": 25,
-    // "name": "howareyou",
-    // "password": "hello324324"/

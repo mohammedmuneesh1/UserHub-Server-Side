@@ -1,5 +1,6 @@
 import { Schema } from "joi";
 import { NextFunction, Request,Response } from "express";
+import { STATUS } from "../constants/constant";
 export  function joiValidation(schema:Schema){
     return async function (req:Request,res:Response,next:NextFunction){
         try {
@@ -8,8 +9,7 @@ export  function joiValidation(schema:Schema){
             next();
             
         }catch (error: any) {
-            console.log(error.message);
-            next(error.message);
+            return res.status(400).json({ status: STATUS.FAILURE, message:error.message });
         }
     }
 }

@@ -29,7 +29,6 @@
   "version": "1.0.0",
   "scripts": {
     "start": " env-cmd -f .env  nodemon bin/server.ts",
-    "dev": "env-cmd -f .env nodemon bin/server.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

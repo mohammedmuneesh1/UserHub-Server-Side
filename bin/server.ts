@@ -1,5 +1,5 @@
 // The bin directory traditionally holds executable scripts or entry points for your application.
-import {app} from "./index"
+import {app} from "../index"
 import http from "http"
 const Port = process.env.PORT;
 if (!Port) {

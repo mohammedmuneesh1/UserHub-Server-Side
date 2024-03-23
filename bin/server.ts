@@ -8,7 +8,7 @@ if (!Port) {
   }
 app.set("port", Port);
 //The app.set() function is used to assign the setting name to value. You may store any value that you want, but certain names can be used to configure the behavior of the server.
-const server = http.createServer(app);
+export const server = http.createServer(app);
 server.listen(Port, () => {
   console.log("app running on", Port);
 });

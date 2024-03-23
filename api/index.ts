@@ -1,2 +1,2 @@
-import {app} from '../index'
-export default app;
+import {server} from '../bin/server'
+export default server;

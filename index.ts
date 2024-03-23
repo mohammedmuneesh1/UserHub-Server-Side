@@ -11,6 +11,7 @@ import rateLimit from 'express-rate-limit';
 export const app:Express= express();
 // This line creates an instance of the Express application.
 //t represents the Express application object. 
+const Port = process.env.PORT;
 
 const limiter = rateLimit({
     windowMs:  60 * 1000, // 15 minutes
@@ -24,6 +25,13 @@ app.use(express.json({limit:"10mb"}));
 app.use(limiter);
 
 app.use("/user",User)
+
+
+app.listen(Port,()=>{
+  console.log("running successfully",Port);
+})
+
+
 
 
 

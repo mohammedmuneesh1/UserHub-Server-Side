@@ -14,9 +14,9 @@ export const app:Express= express();
 const Port = process.env.PORT;
 
 const limiter = rateLimit({
-    windowMs:  60 * 1000, // 15 minutes
-    max: 10
-  });
+  windowMs: 60 * 1000, // 1 minute
+  max: 10 // Max 10 requests per minute
+});
 
 connectDB();
 app.use(cors());
@@ -28,11 +28,11 @@ app.use("/user",User)
 
 
 app.listen(Port,()=>{
-  console.log("running successfully",Port);
+  console.log("running successfully",Port)
 })
 
 
-
+  
 
 
 

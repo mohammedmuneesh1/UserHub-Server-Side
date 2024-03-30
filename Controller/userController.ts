@@ -7,6 +7,7 @@ import bcrypt from "bcrypt";
 import { verify } from "crypto";
 import { UserData, checkAuthData } from "../types/type";
 
+//________________________User Register______________________________________________________________
 export async function userRegister(req:Request,res:Response):Promise<Response> {
     const obj = req.body;
     console.log(req.body);
@@ -19,6 +20,7 @@ export async function userRegister(req:Request,res:Response):Promise<Response> {
     return res.status(200).json({status:STATUS.SUCCESS,message:"user registered successfully1."}) 
 }
 
+//__________________________user Login ________________________________________________________________
 export async function userLogin(req:Request,res:Response):Promise<Response>{
     const {userName,password} = req.body;
     const userData:UserData = await userCollection.findOne({ userName }).select("-__v")
@@ -58,5 +60,3 @@ export async function updateProfile(req:Request,res:Response):Promise<Response>{
 export async function userHome(req:Request,res:Response):Promise<Response>{
     return res.status(200).json({status:STATUS.SUCCESS,message:"welcome to home"})
 }
-
-//NOTE:By adding : Promise<Response> after the function signature, you're explicitly stating that this function returns a promise that resolves to a Response object. This helps TypeScript enforce type safety and provides clarity to developers working with your code.
